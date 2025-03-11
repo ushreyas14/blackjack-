@@ -1,0 +1,91 @@
+import random
+
+while True:
+    def deal_card():
+        cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+        card = random.choice(cards)
+        return card
+    user_cards = []
+    computer_cards = []
+
+    def adjust_ace_value(cards):
+        if 11 in cards and sum(cards) > 21:
+            cards[cards.index(11)] = 1
+
+    for _ in range(2):# we donot need the variable so _
+        user_cards.append(deal_card())# we donot use += or extend as it is used for same data type 
+        computer_cards.append(deal_card())
+
+    print('your set is ',user_cards)
+    print('computer set is ',computer_cards[0])
+
+    if ((sum(user_cards) == 21 and len(user_cards) == 2) or (sum(computer_cards) == 21 and len(computer_cards) == 2)):  
+
+        if sum(user_cards) == 21 and len(user_cards) == 2:
+            print('You have Blackjack! You win!')
+            
+
+        if sum(computer_cards) == 21 and len(computer_cards) == 2:
+            print('computer have Blackjack! You lost!')
+        
+    else:
+
+        choice = input('type y to take another card and n to pass ')
+
+        if (choice == "y" or choice == "n"):
+
+            if choice == 'y':
+                user_cards.append(deal_card())
+            if sum(computer_cards) < 17:
+                computer_cards.append(deal_card())
+            else:
+                a = [1,2,3,4,5]
+                x = random.choice(a)
+                if a == 1:
+                    computer_cards.append(deal_card())  
+
+            print(f'your set is {user_cards} and computer set is {computer_cards}')
+
+        #for i in range(len(computer_cards)):
+            #if computer_cards[i] == 11 and sum(computer_cards) > 21:
+                #computer_cards[i] = 1
+                #break
+
+        #for i in range(len(user_cards)):
+            #if user_cards[i] == 11 and sum(user_cards) > 21:
+                #user_cards[i] = 1
+                #break
+
+            adjust_ace_value(user_cards)
+            adjust_ace_value(computer_cards)
+
+            sum_user = sum(user_cards)
+            sum_computer = sum(computer_cards)
+
+            print(f'your sum is {sum_user} and computer sum {sum_computer}')
+            if sum_user <= 21 and sum_computer <= 21:
+                if sum_user > sum_computer:
+                    print('you won')
+                elif sum_user == sum_computer:
+                    print('draw')
+                else:
+                    print('you lost')
+
+            elif sum_user > 21:
+                print('you lost')
+
+            elif sum_computer > 21:
+                print('you won')
+    
+        else:
+
+            print("enter appropriate value")
+
+    choice2 = input('do you want to play again(y/n) ')
+    
+    if choice2 == 'y' or choice2 == 'n':
+        if choice2 == 'n':
+            break
+    else:
+        print('give a valid response')
+        break
