@@ -1,0 +1,47 @@
+# Blackjack Game
+
+## Description
+This is a simple text-based Blackjack game implemented in Python. The game allows a user to play against a computer dealer, following the basic rules of Blackjack.
+
+## Features
+- The game randomly deals two cards to both the user and the computer.
+- The player can choose to draw another card or pass.
+- The computer follows standard Blackjack rules:
+  - It draws a card if its total is below 17.
+  - It may randomly decide to draw in certain situations.
+- Aces (11) are automatically adjusted to 1 if the total exceeds 21.
+- The game determines the winner based on standard Blackjack scoring.
+- The player can choose to play multiple rounds.
+
+## How to Play
+1. Run the Python script.
+2. You will receive two cards, and the dealer will receive one visible card.
+3. If either you or the dealer gets a Blackjack (21 with two cards), the game ends immediately.
+4. If no one has a Blackjack, you can choose to draw another card (`y`) or pass (`n`).
+5. The dealer will then play based on their total.
+6. The winner is determined based on the final totals:
+   - The highest total under or equal to 21 wins.
+   - If both totals are equal, it's a draw.
+   - If your total exceeds 21, you lose.
+   - If the dealer's total exceeds 21, you win.
+7. You will be asked if you want to play again.
+
+## Requirements
+- Python 3
+- No external libraries required (uses the built-in `random` module)
+
+## Running the Game
+Run the script using:
+```sh
+python blackjack.py
+```
+
+## Notes
+- The game follows simplified Blackjack rules without betting or splitting.
+- Ensure you enter valid inputs (`y` or `n`) when prompted.
+
+## Future Improvements
+- Add betting mechanics.
+- Implement a graphical interface.
+- Improve the dealer's AI for more strategic gameplay.
+
